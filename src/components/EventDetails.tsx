@@ -21,8 +21,8 @@ const EventDetails = () => {
               <Calendar className="w-5 h-5 text-primary" />
             </div>
             <div>
-              <p className="text-sm text-muted-foreground">Date</p>
-              <p className="font-display text-lg font-medium text-foreground">March 7th, 2026</p>
+              <p className="text-base text-muted-foreground">Date</p>
+              <p className="font-display text-xl md:text-2xl font-medium text-foreground">March 7th, 2026</p>
             </div>
           </div>
 
@@ -31,8 +31,8 @@ const EventDetails = () => {
               <Clock className="w-5 h-5 text-primary" />
             </div>
             <div>
-              <p className="text-sm text-muted-foreground">Duration</p>
-              <p className="font-display text-lg font-medium text-foreground">All Day Event</p>
+              <p className="text-base text-muted-foreground">Duration</p>
+              <p className="font-display text-xl md:text-2xl font-medium text-foreground">All Day Event</p>
             </div>
           </div>
 
@@ -41,8 +41,8 @@ const EventDetails = () => {
               <MapPin className="w-5 h-5 text-primary" />
             </div>
             <div>
-              <p className="text-sm text-muted-foreground">Location</p>
-              <p className="font-display text-lg font-medium text-foreground">London, Central Venue TBD</p>
+              <p className="text-base text-muted-foreground">Location</p>
+              <p className="font-display text-xl md:text-2xl font-medium text-foreground">London, Central Venue TBD</p>
             </div>
           </div>
         </motion.div>

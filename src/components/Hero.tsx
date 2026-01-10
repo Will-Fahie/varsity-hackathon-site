@@ -12,10 +12,10 @@ const Hero = () => {
           transition={{ duration: 0.7, delay: 0.2 }}
           className="flex gap-3 mb-8"
         >
-          <span className="inline-flex items-center px-4 py-1.5 rounded-full border border-border bg-card text-sm font-medium text-muted-foreground">
+          <span className="inline-flex items-center px-5 py-2 rounded-full border border-border bg-card text-base md:text-lg font-medium text-muted-foreground">
             March 7th, 2026
           </span>
-          <span className="inline-flex items-center px-4 py-1.5 rounded-full border border-border bg-card text-sm font-medium text-muted-foreground">
+          <span className="inline-flex items-center px-5 py-2 rounded-full border border-border bg-card text-base md:text-lg font-medium text-muted-foreground">
             London
           </span>
         </motion.div>
