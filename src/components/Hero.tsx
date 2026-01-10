@@ -24,7 +24,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="font-display text-6xl md:text-7xl lg:text-8xl font-medium leading-[1.05] tracking-tight text-foreground mb-8"
+          className="font-display text-6xl md:text-7xl lg:text-8xl font-semibold leading-[1.05] tracking-tight text-foreground mb-8"
         >
           Cambridge{" "}
           <span className="italic text-muted-foreground font-normal">v.</span>{" "}
@@ -39,8 +39,6 @@ const Hero = () => {
           transition={{ duration: 0.7, delay: 0.5 }}
           className="text-xl md:text-2xl text-muted-foreground max-w-2xl leading-relaxed mb-10"
         >
-          The ultimate showdown of top computer science talent.
-          <br />
           One day. Two universities. Two tracks.
         </motion.p>
 
@@ -50,7 +48,7 @@ const Hero = () => {
           transition={{ duration: 0.6, delay: 0.7 }}
         >
           <Button size="lg" className="group" asChild>
-            <a href="mailto:hello@varsityhack.com">
+            <a href="mailto:varsityhackathon.co.uk">
               Chat with our team
               <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
             </a>

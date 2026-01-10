@@ -31,7 +31,7 @@ const CTA = () => {
             className="group text-primary"
             asChild
           >
-            <a href="mailto:hello@varsityhack.com">
+            <a href="mailto:varsityhackathon.co.uk">
               Chat with our team
               <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
             </a>
