@@ -14,10 +14,10 @@ const EventDetails = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="flex flex-wrap justify-center gap-8 md:gap-16"
+          className="flex flex-col md:flex-row flex-wrap justify-center items-center md:items-start gap-6 md:gap-8 lg:gap-16"
         >
-          <div className="flex items-center gap-3">
-            <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+          <div className="flex items-center gap-3 w-full md:w-auto justify-center md:justify-start">
+            <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
               <Calendar className="w-5 h-5 text-primary" />
             </div>
             <div>
@@ -26,8 +26,8 @@ const EventDetails = () => {
             </div>
           </div>
 
-          <div className="flex items-center gap-3">
-            <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+          <div className="flex items-center gap-3 w-full md:w-auto justify-center md:justify-start">
+            <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
               <Clock className="w-5 h-5 text-primary" />
             </div>
             <div>
@@ -36,8 +36,8 @@ const EventDetails = () => {
             </div>
           </div>
 
-          <div className="flex items-center gap-3">
-            <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+          <div className="flex items-center gap-3 w-full md:w-auto justify-center md:justify-start">
+            <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
               <MapPin className="w-5 h-5 text-primary" />
             </div>
             <div>
