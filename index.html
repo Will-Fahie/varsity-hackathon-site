@@ -1,27 +1,129 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Oxford vs Cambridge Varsity Hackathon 2026 | London</title>
-    <meta name="description" content="One day. Two universities. Two tracks. March 7th, 2026 in London." />
-    <meta name="author" content="Varsity Hackathon" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Varsity Hackathon 2026 | Oxford vs Cambridge</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:wght@400;700&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="split-bg"></div>
+    <div class="particles" id="particles"></div>
+    <div class="scanlines"></div>
 
-    <meta property="og:title" content="Oxford vs Cambridge Varsity Hackathon 2026" />
-    <meta property="og:description" content="One day. Two universities. Two tracks. March 7th, 2026 in London." />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="/logo.png" />
+    <nav>
+        <div class="logo">
+            <span class="logo-text">Varsity Hack</span>
+        </div>
+    </nav>
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@VarsityHack" />
-    <meta name="twitter:image" content="/logo.png" />
-    
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    <link rel="icon" type="image/png" href="/logo.png" />
-  </head>
+    <main>
+        <div class="crests">
+            <div class="crest oxford">OX</div>
+            <span class="vs-text">VS</span>
+            <div class="crest cambridge">CAM</div>
+        </div>
 
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+        <div class="headline">
+            <h1>
+                <span class="varsity">Varsity</span>
+                <span class="hackathon">Hackathon</span>
+            </h1>
+        </div>
+
+        <div class="event-details">
+            <div class="detail">
+                <span class="detail-label">Location</span>
+                <span class="detail-value">London, UK</span>
+            </div>
+            <div class="detail">
+                <span class="detail-label">Date</span>
+                <span class="detail-value">March 7, 2026</span>
+            </div>
+        </div>
+
+        <div class="cta-group">
+            <a href="#register" class="btn btn-primary">Register Now</a>
+            <a href="#about" class="btn btn-secondary">Learn More</a>
+        </div>
+
+        <div class="countdown">
+            <div class="countdown-item">
+                <div class="countdown-value" id="days">47</div>
+                <div class="countdown-label">Days</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-value" id="hours">12</div>
+                <div class="countdown-label">Hours</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-value" id="minutes">34</div>
+                <div class="countdown-label">Minutes</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-value" id="seconds">56</div>
+                <div class="countdown-label">Seconds</div>
+            </div>
+        </div>
+    </main>
+
+    <section id="about" class="below-fold" aria-label="Event information">
+        <div class="below-fold-inner">
+            <h2 class="info-heading">The Experience</h2>
+            <div class="info-cards">
+                <article class="info-card">
+                    <span class="info-card__accent"></span>
+                    <span class="info-card__label">Participants</span>
+                    <div class="info-card__content info-card__participants">
+                        <span class="participant-pill participant-pill--oxford">25 Oxford Students</span>
+                        <span class="participant-pill participant-pill--cambridge">25 Cambridge Students</span>
+                    </div>
+                </article>
+                <article class="info-card">
+                    <span class="info-card__accent"></span>
+                    <span class="info-card__label">Tracks</span>
+                    <ul class="info-card__content info-card__tracks">
+                        <li>AI Security Track</li>
+                        <li>Computational Sciences Track</li>
+                        <p class="info-card__sub">Top mentors on site to advise teams.</p>
+                    </ul>
+                </article>
+                <article class="info-card">
+                    <span class="info-card__accent"></span>
+                    <span class="info-card__label">Perks & Prizes</span>
+                    <ul class="info-card__content info-card__perks">
+                        <li>Unlimited food</li>
+                        <li>Travel costs covered</li>
+                        <li>Credits, Swag, Hackerhouse, private dinners and more</li>
+                        <li><strong>£5,000+</strong> in cash prizes</li>
+                    </ul>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="sponsors">
+            <span>Sponsored by</span>
+            <div class="sponsor-logos">
+                <div class="sponsor-logo">
+                    <img src="images/icons8-anthropic-96.png" alt="Anthropic" />
+                </div>
+                <div class="sponsor-logo">
+                    <img src="images/elevenlabs-symbol.png" alt="ElevenLabs" />
+                </div>
+                <div class="sponsor-logo">
+                    <img src="images/lovable-icon-bg-light.png" alt="Lovable" />
+                </div>
+                <span class="sponsor-more">and more…</span>
+            </div>
+        </div>
+        <span>© 2026 Varsity Hackathon. All rights reserved.</span>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
 </html>

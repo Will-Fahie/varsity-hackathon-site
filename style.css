@@ -1,0 +1,760 @@
+/* Varsity Hackathon 2026 - Styles */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --oxford-blue: #002147;
+    --oxford-glow: #1a4a7a;
+    --cambridge-blue: #8EE8D8;
+    --gold: #d4af37;
+    --gold-bright: #ffd700;
+    --white: #ffffff;
+    --black: #0a0a0a;
+    --gray: #888;
+}
+
+html {
+    min-height: 100%;
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100%;
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: auto;
+    font-family: 'Outfit', sans-serif;
+    background: var(--black);
+    color: var(--white);
+}
+
+/* Split background - extends with page so design flows top to bottom */
+.split-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    min-height: 100vh;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.split-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--oxford-blue) 0%, #001428 100%);
+    clip-path: polygon(0 0, 100% 0, 85% 100%, 0 100%);
+}
+
+.split-bg::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(225deg, var(--cambridge-blue) 0%, #091f1f 100%);
+    clip-path: polygon(15% 0, 100% 0, 100% 100%, 0 100%);
+}
+
+/* Particle effects */
+.particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.particle {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    animation: particleFloat 8s infinite;
+}
+
+.particle.oxford {
+    background: rgba(0, 100, 200, 0.6);
+    box-shadow: 0 0 10px rgba(0, 100, 200, 0.8);
+}
+
+.particle.cambridge {
+    background: rgba(142, 232, 216, 0.6);
+    box-shadow: 0 0 10px rgba(142, 232, 216, 0.8);
+}
+
+@keyframes particleFloat {
+    0%, 100% { transform: translateY(0) translateX(0); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { transform: translateY(-100vh) translateX(50px); opacity: 0; }
+}
+
+/* Navigation */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 1.5rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    animation: fadeDown 0.8s ease-out;
+}
+
+@keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.logo-text {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.5rem;
+    letter-spacing: 0.15em;
+    background: linear-gradient(90deg, var(--white) 0%, var(--gold) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.nav-links {
+    display: flex;
+    gap: 3rem;
+    align-items: center;
+}
+
+.nav-links a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--gold);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--white);
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.register-btn {
+    padding: 0.75rem 1.75rem;
+    background: transparent;
+    border: 2px solid var(--gold);
+    color: var(--gold) !important;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.register-btn::after {
+    display: none !important;
+}
+
+.register-btn:hover {
+    background: var(--gold);
+    color: var(--black) !important;
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.4);
+}
+
+/* Main content - hero section is full viewport, can add more content below */
+main {
+    position: relative;
+    z-index: 10;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+}
+
+/* University crests */
+.crests {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    margin-bottom: 2rem;
+    animation: fadeUp 0.8s ease-out 0.2s both;
+}
+
+.crest {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem;
+    position: relative;
+}
+
+.crest::before {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    border-radius: 50%;
+    padding: 3px;
+    background: linear-gradient(135deg, var(--gold), transparent, var(--gold));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+}
+
+.crest.oxford {
+    background: var(--oxford-blue);
+    box-shadow: 0 0 40px rgba(0, 33, 71, 0.8);
+}
+
+.crest.cambridge {
+    background: linear-gradient(135deg, var(--cambridge-blue) 0%, #1a5555 100%);
+    border: 2px solid var(--cambridge-blue);
+    box-shadow: 0 0 40px rgba(142, 232, 216, 0.4);
+}
+
+.vs-text {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3rem;
+    color: var(--gold);
+    text-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
+    animation: vsPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes vsPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+/* Headline */
+.headline {
+    margin-bottom: 1.5rem;
+    animation: fadeUp 0.8s ease-out 0.4s both;
+}
+
+.headline h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(4rem, 12vw, 10rem);
+    line-height: 0.9;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+}
+
+.headline .varsity {
+    display: block;
+    background: linear-gradient(90deg,
+        var(--oxford-glow) 0%,
+        var(--white) 30%,
+        var(--white) 70%,
+        var(--cambridge-blue) 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.headline .hackathon {
+    display: block;
+    color: var(--gold);
+    text-shadow: 0 0 60px rgba(212, 175, 55, 0.5);
+    font-size: 0.6em;
+    letter-spacing: 0.3em;
+}
+
+/* Event details */
+.event-details {
+    display: flex;
+    gap: 3rem;
+    margin-bottom: 2rem;
+    animation: fadeUp 0.8s ease-out 0.6s both;
+}
+
+.detail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.detail-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+}
+
+.detail-value {
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+}
+
+/* CTAs */
+.cta-group {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+    animation: fadeUp 0.8s ease-out 0.8s both;
+}
+
+.btn {
+    padding: 1.1rem 2.5rem;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    text-decoration: none;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-bright) 50%, var(--gold) 100%);
+    background-size: 200% 200%;
+    color: var(--black);
+    border: none;
+    box-shadow: 0 0 40px rgba(212, 175, 55, 0.4);
+    animation: goldShimmer 3s ease-in-out infinite;
+}
+
+@keyframes goldShimmer {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+.btn-primary:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 10px 60px rgba(212, 175, 55, 0.6);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--white);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.btn-secondary:hover {
+    border-color: var(--white);
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-4px);
+}
+
+/* Countdown */
+.countdown {
+    display: flex;
+    gap: 2rem;
+    animation: fadeUp 0.8s ease-out 1s both;
+}
+
+.countdown-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.countdown-value {
+    font-family: 'Space Mono', monospace;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1;
+    min-width: 70px;
+    padding: 0.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+}
+
+.countdown-value::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.countdown-label {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--gray);
+    margin-top: 0.5rem;
+}
+
+/* Content below the fold - background flows with split design */
+.below-fold {
+    position: relative;
+    z-index: 10;
+    min-height: 100vh;
+    padding: 5rem 2rem 2.5rem;
+}
+
+.below-fold-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Section heading */
+.info-heading {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    letter-spacing: 0.08em;
+    text-align: center;
+    margin-bottom: 3.5rem;
+    background: linear-gradient(90deg,
+        var(--oxford-glow) 0%,
+        var(--white) 40%,
+        var(--gold) 60%,
+        var(--cambridge-blue) 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: fadeUp 0.8s ease-out both;
+}
+
+/* Info cards grid */
+.info-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+/* Single info card - glass panel with gold accent */
+.info-card {
+    position: relative;
+    padding: 2rem 1.75rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    overflow: hidden;
+    animation: fadeUp 0.8s ease-out both;
+}
+
+.info-card:nth-child(1) { animation-delay: 0.1s; }
+.info-card:nth-child(2) { animation-delay: 0.2s; }
+.info-card:nth-child(3) { animation-delay: 0.3s; }
+
+.info-card__accent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg,
+        transparent 0%,
+        var(--gold) 20%,
+        var(--gold-bright) 50%,
+        var(--gold) 80%,
+        transparent 100%
+    );
+    opacity: 0.9;
+}
+
+.info-card__label {
+    display: block;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    color: var(--gold);
+    margin-bottom: 1.25rem;
+}
+
+.info-card__content {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.info-card__sub {
+    margin-top: 1rem;
+    font-size: 0.8rem;
+    color: var(--gray);
+    letter-spacing: 0.05em;
+}
+
+/* Participants card - Oxford / Cambridge pills */
+.info-card__participants {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    align-items: center;
+}
+
+.participant-pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    border-radius: 2px;
+}
+
+.participant-pill--oxford {
+    background: rgba(0, 33, 71, 0.6);
+    border: 1px solid rgba(26, 74, 122, 0.6);
+    color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 0 20px rgba(0, 33, 71, 0.3);
+}
+
+.participant-pill--cambridge {
+    background: rgba(142, 232, 216, 0.12);
+    border: 1px solid rgba(142, 232, 216, 0.4);
+    color: var(--cambridge-blue);
+    box-shadow: 0 0 20px rgba(142, 232, 216, 0.15);
+}
+
+/* Tracks list */
+.info-card__tracks li {
+    position: relative;
+    padding-left: 1.25rem;
+    margin-bottom: 0.6rem;
+}
+
+.info-card__tracks li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.55em;
+    width: 4px;
+    height: 4px;
+    background: var(--gold);
+    border-radius: 50%;
+    box-shadow: 0 0 8px var(--gold);
+}
+
+.info-card__tracks li:last-child {
+    margin-bottom: 0;
+}
+
+/* Perks list - highlight prize amount */
+.info-card__perks li {
+    position: relative;
+    padding-left: 1.25rem;
+    margin-bottom: 0.6rem;
+}
+
+.info-card__perks li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.55em;
+    width: 4px;
+    height: 4px;
+    background: var(--cambridge-blue);
+    border-radius: 50%;
+    box-shadow: 0 0 8px rgba(142, 232, 216, 0.5);
+}
+
+.info-card__perks li:last-child {
+    margin-bottom: 0;
+}
+
+.info-card__perks strong {
+    color: var(--gold-bright);
+    font-weight: 700;
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+}
+
+/* Footer - flows with content so it appears after all sections */
+footer {
+    position: relative;
+    z-index: 10;
+    padding: 1.25rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.75rem;
+    color: var(--gray);
+}
+
+.sponsors {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.sponsors span {
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.65rem;
+}
+
+.sponsor-logos {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.sponsor-logo {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.sponsor-logo img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+.sponsor-more {
+    font-size: 0.75rem;
+    opacity: 0.8;
+    font-style: italic;
+    margin-left: 0.25rem;
+}
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Glitch effect on hover */
+.headline h1:hover .varsity {
+    animation: glitch 0.3s ease;
+}
+
+@keyframes glitch {
+    0%, 100% { transform: translateX(0); }
+    20% { transform: translateX(-3px); }
+    40% { transform: translateX(3px); }
+    60% { transform: translateX(-2px); }
+    80% { transform: translateX(2px); }
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    nav {
+        padding: 1rem 2rem;
+    }
+
+    .nav-links a:not(.register-btn) {
+        display: none;
+    }
+
+    .crests {
+        gap: 2rem;
+    }
+
+    .crest {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+
+    .vs-text {
+        font-size: 2rem;
+    }
+
+    .event-details {
+        gap: 1.5rem;
+    }
+
+    .countdown {
+        gap: 1rem;
+    }
+
+    .countdown-value {
+        font-size: 1.75rem;
+        min-width: 55px;
+    }
+
+    footer {
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 1rem;
+    }
+
+    .below-fold {
+        padding: 3rem 1.5rem 2rem;
+    }
+
+    .info-cards {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .info-card {
+        padding: 1.5rem 1.25rem;
+    }
+
+    .info-card__participants {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .participant-pill {
+        justify-content: center;
+    }
+}
+
+/* Scan line effect */
+.scanlines {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 50;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.03) 0px,
+        rgba(0, 0, 0, 0.03) 1px,
+        transparent 1px,
+        transparent 2px
+    );
+}
