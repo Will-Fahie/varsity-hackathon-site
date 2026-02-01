@@ -225,6 +225,18 @@ main {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 2rem;
     position: relative;
+    animation: crestRingRotate 12s linear infinite;
+}
+
+/* Slow rotation for the ring; text counter-rotates via .crest-text */
+@keyframes crestRingRotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.crest-text {
+    display: inline-block;
+    animation: crestRingRotate 12s linear infinite reverse;
 }
 
 .crest::before {
