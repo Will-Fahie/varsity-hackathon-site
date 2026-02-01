@@ -1,0 +1,14 @@
+# Always revalidate so visitors get the latest HTML, CSS, and JS after each deploy.
+# Cloudflare Pages reads this from the build output (project root for static sites).
+
+/
+  Cache-Control: max-age=0, must-revalidate
+
+/index.html
+  Cache-Control: max-age=0, must-revalidate
+
+/style.css
+  Cache-Control: max-age=0, must-revalidate
+
+/main.js
+  Cache-Control: max-age=0, must-revalidate
