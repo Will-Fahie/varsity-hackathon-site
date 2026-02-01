@@ -81,7 +81,9 @@ body {
     width: 3px;
     height: 3px;
     border-radius: 50%;
-    animation: particleFloat 8s infinite;
+    left: 0;
+    top: 0;
+    will-change: transform, opacity;
 }
 
 .particle.oxford {
