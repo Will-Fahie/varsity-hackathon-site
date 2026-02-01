@@ -5,7 +5,7 @@
 
 // Generate floating particles (Oxford/Cambridge themed)
 const particlesContainer = document.getElementById('particles');
-const particleCount = 40;
+const particleCount = 200;
 
 for (let i = 0; i < particleCount; i++) {
     const particle = document.createElement('div');
