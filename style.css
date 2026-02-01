@@ -29,6 +29,8 @@ body {
     font-family: 'Outfit', sans-serif;
     background: var(--black);
     color: var(--white);
+    /* Reserve space so content is not hidden behind the fixed footer */
+    padding-bottom: 5rem;
 }
 
 /* Split background - extends with page so design flows top to bottom */
@@ -395,15 +397,19 @@ main {
     box-shadow: 0 10px 60px rgba(212, 175, 55, 0.6);
 }
 
+/* Learn More – same glass style as footer (font colour + glass), font itself unchanged */
 .btn-secondary {
-    background: transparent;
-    color: var(--white);
-    border: 2px solid rgba(255, 255, 255, 0.3);
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 6px;
+    color: rgba(255, 255, 255, 0.88);
 }
 
 .btn-secondary:hover {
-    border-color: var(--white);
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.45);
+    border-color: rgba(255, 255, 255, 0.1);
     transform: translateY(-4px);
 }
 
@@ -669,16 +675,33 @@ main {
     text-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
 }
 
-/* Footer - flows with content so it appears after all sections */
+/* Footer - fixed to bottom of viewport, transparent; glass only on content boxes */
 footer {
-    position: relative;
-    z-index: 10;
-    padding: 1.25rem 4rem;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 90;
+    padding: 0.5rem 4rem 0.5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-size: 0.75rem;
-    color: var(--gray);
+    color: rgba(255, 255, 255, 0.88);
+}
+
+/* Thin transparent glass box around footer content (sponsors + copyright only) */
+.footer-glass {
+    padding: 0.4rem 1rem;
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 6px;
+}
+
+.footer-copyright {
+    display: block;
 }
 
 .sponsors {
@@ -780,7 +803,11 @@ footer {
     footer {
         flex-direction: column;
         gap: 0.5rem;
-        padding: 1rem;
+        padding: 0.5rem 1rem;
+    }
+
+    .footer-glass {
+        padding: 0.35rem 0.75rem;
     }
 
     .below-fold {
