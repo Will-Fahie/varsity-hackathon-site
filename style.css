@@ -582,17 +582,53 @@ main {
 }
 
 /* Tracks list */
-.info-card__tracks li {
-    position: relative;
-    padding-left: 1.25rem;
-    margin-bottom: 0.6rem;
+.info-card__tracks {
+    list-style: none;
 }
 
-.info-card__tracks li::before {
+.track-block {
+    margin-bottom: 1.25rem;
+}
+
+.track-block:last-of-type {
+    margin-bottom: 0;
+}
+
+.track-name {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.35rem;
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.example-label {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--gray);
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+}
+
+.example-projects {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.example-projects li {
+    position: relative;
+    padding-left: 1.25rem;
+    margin-bottom: 0.4rem;
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.example-projects li::before {
     content: '';
     position: absolute;
     left: 0;
-    top: 0.55em;
+    top: 0.5em;
     width: 4px;
     height: 4px;
     background: var(--gold);
@@ -600,7 +636,7 @@ main {
     box-shadow: 0 0 8px var(--gold);
 }
 
-.info-card__tracks li:last-child {
+.example-projects li:last-child {
     margin-bottom: 0;
 }
 
