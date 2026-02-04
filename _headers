@@ -1,14 +1,8 @@
-# Always revalidate so visitors get the latest HTML, CSS, and JS after each deploy.
-# Cloudflare Pages reads this from the build output (project root for static sites).
+# Prevent caching so visitors always get the latest version after each deploy.
+# Cloudflare Pages applies these headers; use "Purge Everything" in Cloudflare
+# Dashboard (Caching) once after changing this if the site still looks stale.
 
-/
-  Cache-Control: max-age=0, must-revalidate
-
-/index.html
-  Cache-Control: max-age=0, must-revalidate
-
-/style.css
-  Cache-Control: max-age=0, must-revalidate
-
-/main.js
-  Cache-Control: max-age=0, must-revalidate
+/*
+  Cache-Control: no-store, no-cache, must-revalidate, max-age=0
+  Pragma: no-cache
+  Expires: 0
