@@ -315,7 +315,7 @@ main {
 .headline .hackathon {
     display: block;
     color: var(--gold);
-    text-shadow: 0 0 60px rgba(212, 175, 55, 0.5);
+    text-shadow: 0 0 45px rgba(212, 175, 55, 0.38);
     font-size: 0.6em;
     letter-spacing: 0.3em;
     animation: hackathonPulse 1.5s ease-in-out infinite;
@@ -324,14 +324,14 @@ main {
 @keyframes hackathonPulse {
     0%, 100% {
         transform: scale(1);
-        text-shadow: 0 0 60px rgba(212, 175, 55, 0.5);
+        text-shadow: 0 0 45px rgba(212, 175, 55, 0.38);
     }
     50% {
         transform: scale(1.03);
         text-shadow: 
-            0 0 30px rgba(212, 175, 55, 0.8),
-            0 0 60px rgba(212, 175, 55, 0.6),
-            0 0 100px rgba(255, 215, 0, 0.4);
+            0 0 23px rgba(212, 175, 55, 0.6),
+            0 0 45px rgba(212, 175, 55, 0.45),
+            0 0 75px rgba(255, 215, 0, 0.3);
     }
 }
 
