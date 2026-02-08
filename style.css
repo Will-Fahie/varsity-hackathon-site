@@ -468,8 +468,7 @@ main {
 .below-fold {
     position: relative;
     z-index: 10;
-    min-height: 100vh;
-    padding: 5rem 2rem 2.5rem;
+    padding: 5rem 2rem 2rem;
 }
 
 .below-fold-inner {
@@ -680,6 +679,35 @@ main {
     color: var(--gold-bright);
     font-weight: 700;
     text-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+}
+
+/* Scroll arrow: about section → video section (sits in section bottom) */
+.scroll-to-video {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1.5rem;
+    padding: 0.25rem 2rem;
+    color: var(--white);
+    text-decoration: none;
+    transition: color 0.25s ease, transform 0.25s ease;
+    position: relative;
+    z-index: 10;
+}
+
+.scroll-to-video:hover {
+    color: var(--gold-bright);
+    transform: translateY(4px);
+}
+
+.scroll-to-video:focus {
+    outline: 2px solid var(--gold);
+    outline-offset: 4px;
+}
+
+.scroll-to-video svg {
+    display: block;
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.4));
 }
 
 /* Video section - before footer */
