@@ -364,6 +364,82 @@ main {
     letter-spacing: 0.05em;
 }
 
+/* Deadline notice */
+.deadline-notice {
+    margin-bottom: 2rem;
+    animation: fadeUp 0.8s ease-out 0.7s both;
+}
+
+.deadline-content {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.25rem 2rem;
+    background: rgba(212, 175, 55, 0.1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 2px solid rgba(212, 175, 55, 0.3);
+    border-radius: 8px;
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.deadline-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg,
+        transparent 0%,
+        var(--gold) 20%,
+        var(--gold-bright) 50%,
+        var(--gold) 80%,
+        transparent 100%
+    );
+    opacity: 0.9;
+    animation: deadlinePulse 2s ease-in-out infinite;
+}
+
+@keyframes deadlinePulse {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+}
+
+.deadline-icon {
+    font-size: 1.75rem;
+    flex-shrink: 0;
+    animation: deadlineIconPulse 2s ease-in-out infinite;
+}
+
+@keyframes deadlineIconPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.deadline-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    flex: 1;
+}
+
+.deadline-text strong {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--gold-bright);
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+    letter-spacing: 0.05em;
+}
+
+.deadline-subtext {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.85);
+    letter-spacing: 0.03em;
+}
+
 /* CTAs */
 .cta-group {
     display: flex;
@@ -890,6 +966,25 @@ footer {
 
     .event-details {
         gap: 1.5rem;
+    }
+
+    .deadline-content {
+        padding: 1rem 1.5rem;
+        flex-direction: column;
+        text-align: center;
+        gap: 0.75rem;
+    }
+
+    .deadline-icon {
+        font-size: 1.5rem;
+    }
+
+    .deadline-text strong {
+        font-size: 1rem;
+    }
+
+    .deadline-subtext {
+        font-size: 0.85rem;
     }
 
     .countdown {
