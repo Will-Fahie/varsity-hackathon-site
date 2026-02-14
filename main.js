@@ -12,17 +12,17 @@ const particles = [];
 for (let i = 0; i < particleCount; i++) {
     const particle = document.createElement('div');
     particle.className = `particle ${i % 2 === 0 ? 'oxford' : 'cambridge'}`;
-    
+
     // Position only via transform so (p.x, p.y) = screen position (needed for mouse repulsion)
     particle.style.left = '0';
     particle.style.top = '0';
-    
+
     particlesContainer.appendChild(particle);
-    
-    // Start at bottom of screen, spread out
+
+    // Spread particles evenly across the entire viewport on load
     const startX = Math.random() * window.innerWidth;
-    const startY = window.innerHeight + Math.random() * 300;
-    
+    const startY = Math.random() * (window.innerHeight + 300); // Full screen + buffer below
+
     // Store particle data: position in viewport pixels, float drift, repulsion
     particles.push({
         element: particle,
@@ -31,13 +31,13 @@ for (let i = 0; i < particleCount; i++) {
         baseX: startX,
         baseY: startY,
         floatY: 0,           // Current vertical drift (decreases = move up)
-        floatSpeed: 2 + Math.random() * 3,  // Pixels per frame upward
+        floatSpeed: 1 + Math.random() * 1.5,  // ~1.0-2.5 pixels per frame
         floatPhase: Math.random() * Math.PI * 2,
         repelX: 0,
         repelY: 0,
         opacity: 0.3
     });
-    
+
     // Set initial position so getBoundingClientRect() is correct on first frame
     particle.style.transform = `translate(${startX}px, ${startY}px)`;
 }

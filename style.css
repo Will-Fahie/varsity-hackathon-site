@@ -33,7 +33,7 @@ body {
     padding-bottom: 5rem;
 }
 
-/* Split background - extends with page so design flows top to bottom */
+/* Split background - modern 3D depth effect */
 .split-bg {
     position: absolute;
     top: 0;
@@ -43,28 +43,73 @@ body {
     min-height: 100vh;
     z-index: 0;
     overflow: hidden;
+    /* Base gradient that ensures full coverage - no black gaps */
+    background: linear-gradient(90deg,
+        var(--oxford-blue) 0%,
+        #001428 35%,
+        #0a1515 50%,
+        #091f1f 65%,
+        #0d2626 100%
+    );
 }
 
-.split-bg::before {
-    content: '';
+/* Oxford side - deep blue with gradient depth */
+.bg-oxford {
+    position: absolute;
+    top: -10%;
+    left: -5%;
+    width: 60%;
+    height: 120%;
+    background:
+        radial-gradient(ellipse 80% 50% at 20% 50%, rgba(0, 33, 71, 0.95) 0%, transparent 70%),
+        radial-gradient(ellipse 100% 80% at 0% 50%, var(--oxford-blue) 0%, transparent 60%),
+        linear-gradient(100deg, var(--oxford-blue) 0%, #001428 40%, transparent 70%);
+}
+
+/* Cambridge side - teal with gradient depth */
+.bg-cambridge {
+    position: absolute;
+    top: -10%;
+    right: -5%;
+    width: 60%;
+    height: 120%;
+    background:
+        radial-gradient(ellipse 80% 50% at 80% 50%, rgba(142, 232, 216, 0.2) 0%, transparent 70%),
+        radial-gradient(ellipse 100% 80% at 100% 50%, rgba(142, 232, 216, 0.3) 0%, transparent 60%),
+        linear-gradient(260deg, rgba(142, 232, 216, 0.35) 0%, #0a1a1a 40%, transparent 70%);
+}
+
+/* Central glow - creates the smooth fusion between both sides */
+.bg-center-glow {
+    position: absolute;
+    top: -10%;
+    left: 50%;
+    width: 50%;
+    height: 120%;
+    transform: translateX(-50%);
+    background:
+        /* Gold hint at top center */
+        radial-gradient(ellipse 80% 40% at 50% 20%, rgba(212, 175, 55, 0.06) 0%, transparent 50%),
+        /* Soft blend zone */
+        radial-gradient(ellipse 100% 100% at 50% 50%, rgba(10, 20, 25, 0.8) 0%, transparent 50%);
+    filter: blur(60px);
+}
+
+/* Depth overlay - adds dimension with subtle vignette */
+.bg-depth-overlay {
     position: absolute;
     top: 0;
     left: 0;
-    width: 50%;
-    height: 100%;
-    background: linear-gradient(135deg, var(--oxford-blue) 0%, #001428 100%);
-    clip-path: polygon(0 0, 100% 0, 85% 100%, 0 100%);
-}
-
-.split-bg::after {
-    content: '';
-    position: absolute;
-    top: 0;
     right: 0;
-    width: 50%;
-    height: 100%;
-    background: linear-gradient(225deg, var(--cambridge-blue) 0%, #091f1f 100%);
-    clip-path: polygon(15% 0, 100% 0, 100% 100%, 0 100%);
+    bottom: 0;
+    background:
+        /* Top spotlight effect */
+        radial-gradient(ellipse 80% 40% at 50% 0%, rgba(255, 255, 255, 0.015) 0%, transparent 50%),
+        /* Center depth - darker middle creates 3D valley effect */
+        radial-gradient(ellipse 30% 50% at 50% 50%, rgba(0, 0, 0, 0.25) 0%, transparent 60%),
+        /* Vignette for depth */
+        radial-gradient(ellipse 120% 120% at 50% 50%, transparent 40%, rgba(0, 0, 0, 0.3) 100%);
+    pointer-events: none;
 }
 
 /* Particle effects */
@@ -289,6 +334,8 @@ main {
 .headline {
     margin-bottom: 1.5rem;
     animation: fadeUp 0.8s ease-out 0.4s both;
+    user-select: none;
+    -webkit-user-select: none;
 }
 
 .headline h1 {
@@ -314,25 +361,31 @@ main {
 
 .headline .hackathon {
     display: block;
-    color: var(--gold);
-    text-shadow: 0 0 45px rgba(212, 175, 55, 0.38);
     font-size: 0.6em;
     letter-spacing: 0.3em;
-    animation: hackathonPulse 1.5s ease-in-out infinite;
+    margin-right: -0.3em; /* Compensate for letter-spacing on last character */
+    /* Metallic gold gradient with bright highlight sweep */
+    background: linear-gradient(
+        90deg,
+        var(--gold) 0%,
+        var(--gold) 45%,
+        #fff 50%,
+        var(--gold) 55%,
+        var(--gold) 100%
+    );
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: hackathonShimmer 3s linear infinite;
+    /* Subtle text stroke for definition */
+    -webkit-text-stroke: 0.5px rgba(212, 175, 55, 0.3);
+    filter: drop-shadow(0 0 30px rgba(212, 175, 55, 0.3));
 }
 
-@keyframes hackathonPulse {
-    0%, 100% {
-        transform: scale(1);
-        text-shadow: 0 0 45px rgba(212, 175, 55, 0.38);
-    }
-    50% {
-        transform: scale(1.03);
-        text-shadow: 
-            0 0 23px rgba(212, 175, 55, 0.6),
-            0 0 45px rgba(212, 175, 55, 0.45),
-            0 0 75px rgba(255, 215, 0, 0.3);
-    }
+@keyframes hackathonShimmer {
+    0% { background-position: 200% 50%; }
+    100% { background-position: -200% 50%; }
 }
 
 /* Event details */
@@ -364,7 +417,7 @@ main {
     letter-spacing: 0.05em;
 }
 
-/* Deadline notice */
+/* Deadline notice - frosted glass panel */
 .deadline-notice {
     margin-bottom: 2rem;
     animation: fadeUp 0.8s ease-out 0.7s both;
@@ -373,64 +426,39 @@ main {
 .deadline-content {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 1rem;
     padding: 1.25rem 2rem;
-    background: rgba(212, 175, 55, 0.1);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 2px solid rgba(212, 175, 55, 0.3);
+    /* Frosted glass effect */
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
     border-radius: 8px;
-    box-shadow: 0 0 30px rgba(212, 175, 55, 0.2);
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
     position: relative;
     overflow: hidden;
-}
-
-.deadline-content::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: linear-gradient(90deg,
-        transparent 0%,
-        var(--gold) 20%,
-        var(--gold-bright) 50%,
-        var(--gold) 80%,
-        transparent 100%
-    );
-    opacity: 0.9;
-    animation: deadlinePulse 2s ease-in-out infinite;
-}
-
-@keyframes deadlinePulse {
-    0%, 100% { opacity: 0.6; }
-    50% { opacity: 1; }
 }
 
 .deadline-icon {
     font-size: 1.75rem;
     flex-shrink: 0;
-    animation: deadlineIconPulse 2s ease-in-out infinite;
-}
-
-@keyframes deadlineIconPulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.1); }
 }
 
 .deadline-text {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    text-align: center;
     gap: 0.25rem;
-    flex: 1;
 }
 
 .deadline-text strong {
     font-size: 1.1rem;
     font-weight: 700;
     color: var(--gold-bright);
-    text-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
     letter-spacing: 0.05em;
 }
 
@@ -480,20 +508,24 @@ main {
     box-shadow: 0 10px 60px rgba(212, 175, 55, 0.6);
 }
 
-/* Learn More – same glass style as footer (font colour + glass), font itself unchanged */
+/* Learn More – frosted glass style */
 .btn-secondary {
-    background: rgba(0, 0, 0, 0.35);
+    background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 6px;
-    color: rgba(255, 255, 255, 0.88);
+    color: var(--white);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 .btn-secondary:hover {
-    background: rgba(0, 0, 0, 0.45);
-    border-color: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.18);
+    border-color: rgba(255, 255, 255, 0.3);
     transform: translateY(-4px);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.15),
+        0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
 /* Countdown */
