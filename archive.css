@@ -181,6 +181,15 @@
     text-align: center;
 }
 
+.organiser-card__role {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--gold);
+    opacity: 0.7;
+}
+
 .organiser-card__link-hint {
     font-family: 'Space Mono', monospace;
     font-size: 0.65rem;
@@ -195,16 +204,48 @@
     opacity: 1;
 }
 
-/* Teams grid */
-.teams-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
+/* Teams */
+.teams-summary {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.9);
+    letter-spacing: 0.02em;
 }
 
+.teams-summary strong {
+    color: var(--cambridge-blue);
+}
+
+.teams-subheading {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    color: var(--gold);
+    text-align: center;
+    margin-bottom: 1.25rem;
+}
+
+/* Winners podium - 3 columns */
+.teams-podium {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+}
+
+/* All teams grid - 3 columns */
+.teams-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+/* Base team card */
 .team-card {
     position: relative;
-    padding: 2rem 1.75rem;
+    padding: 1rem 1.15rem;
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.08);
     overflow: hidden;
@@ -216,7 +257,7 @@
     top: 0;
     left: 0;
     right: 0;
-    height: 3px;
+    height: 2px;
     background: linear-gradient(90deg,
         transparent 0%,
         var(--gold) 20%,
@@ -224,22 +265,72 @@
         var(--gold) 80%,
         transparent 100%
     );
-    opacity: 0.9;
+    opacity: 0.6;
+}
+
+/* Podium card distinction */
+.team-card--podium {
+    border-color: rgba(212, 175, 55, 0.2);
+    background: rgba(212, 175, 55, 0.04);
+}
+
+.team-card--podium .team-card__accent {
+    height: 3px;
+    opacity: 1;
+}
+
+.team-card--gold {
+    border-color: rgba(255, 215, 0, 0.35);
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.08);
+}
+
+.team-card--silver {
+    border-color: rgba(212, 175, 55, 0.25);
+}
+
+.team-card--bronze {
+    border-color: rgba(212, 175, 55, 0.18);
+}
+
+.team-card__placement {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--gold-bright);
+    margin-bottom: 0.3rem;
 }
 
 .team-card__name {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.5rem;
-    letter-spacing: 0.08em;
+    font-size: 1.15rem;
+    letter-spacing: 0.06em;
     color: var(--white);
-    margin-bottom: 1rem;
+    margin-bottom: 0.2rem;
+}
+
+.team-card__university {
+    font-size: 0.65rem;
+    color: var(--gray);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
 }
 
 .team-card__members {
+    list-style: none;
+    margin: 0;
+    padding: 0;
     display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-bottom: 1.25rem;
+    flex-direction: column;
+    gap: 0.15rem;
+}
+
+.team-card__members li {
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: rgba(255, 255, 255, 0.85);
 }
 
 .team-card__member {
@@ -303,11 +394,20 @@
     animation: fadeUp 0.8s ease-out both;
 }
 
+.teams-placeholder--compact {
+    padding: 1rem 1.5rem;
+    margin-top: 1rem;
+}
+
 .teams-placeholder__text {
-    font-size: 1.1rem;
+    font-size: 0.9rem;
     font-weight: 500;
     color: var(--gray);
     letter-spacing: 0.03em;
+}
+
+.teams-placeholder--compact .teams-placeholder__text {
+    font-size: 0.85rem;
 }
 
 /* Sponsors grid */
@@ -439,6 +539,26 @@
     letter-spacing: 0.05em;
 }
 
+.photo-item {
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.03);
+    animation: fadeUp 0.8s ease-out both;
+}
+
+.photo-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.photo-item:hover img {
+    transform: scale(1.05);
+}
+
 /* Back-to-home link in the archive nav */
 .nav-links a.nav-back {
     display: inline-flex;
@@ -466,9 +586,18 @@
         padding: 1.5rem 1rem;
     }
 
-    .teams-grid {
+    .teams-podium {
         grid-template-columns: 1fr;
-        gap: 1.5rem;
+        gap: 0.9rem;
+    }
+
+    .teams-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.9rem;
+    }
+
+    .team-card {
+        padding: 0.9rem 1rem;
     }
 
     .sponsor-grid {
@@ -491,6 +620,10 @@
 
 @media (max-width: 500px) {
     .organiser-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .teams-grid {
         grid-template-columns: 1fr;
     }
 
