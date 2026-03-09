@@ -1043,6 +1043,16 @@ footer {
     display: block;
 }
 
+.sponsor-logo--wide {
+    width: auto;
+}
+
+.sponsor-logo--wide img {
+    height: 32px;
+    max-width: none;
+    width: auto;
+}
+
 .sponsor-more {
     font-size: 0.75rem;
     opacity: 0.8;
