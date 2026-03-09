@@ -535,6 +535,10 @@ main {
     animation: fadeUp 0.8s ease-out 1s both;
 }
 
+.countdown--ended {
+    justify-content: center;
+}
+
 .countdown-item {
     display: flex;
     flex-direction: column;
