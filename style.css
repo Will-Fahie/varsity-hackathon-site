@@ -33,50 +33,52 @@ body {
     padding-bottom: 5rem;
 }
 
-/* Split background - modern 3D depth effect */
+/* Split background - modern 3D depth effect (fixed for consistent gradient on all page heights) */
 .split-bg {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
+    width: 100%;
     min-height: 100vh;
     z-index: 0;
     overflow: hidden;
-    /* Base gradient that ensures full coverage - no black gaps */
+    /* Base gradient - smooth blend from Oxford blue to Cambridge teal, no harsh seam */
     background: linear-gradient(90deg,
         var(--oxford-blue) 0%,
-        #001428 35%,
-        #0a1515 50%,
-        #091f1f 65%,
-        #0d2626 100%
+        #001428 25%,
+        #0a1515 45%,
+        #091f1f 55%,
+        #0d2626 75%,
+        rgba(13, 38, 38, 0.95) 100%
     );
 }
 
-/* Oxford side - deep blue with gradient depth */
+/* Oxford side - deep blue with soft gradient depth (wide blend to avoid center seam) */
 .bg-oxford {
     position: absolute;
     top: -10%;
     left: -5%;
-    width: 60%;
+    width: 65%;
     height: 120%;
     background:
         radial-gradient(ellipse 80% 50% at 20% 50%, rgba(0, 33, 71, 0.95) 0%, transparent 70%),
         radial-gradient(ellipse 100% 80% at 0% 50%, var(--oxford-blue) 0%, transparent 60%),
-        linear-gradient(100deg, var(--oxford-blue) 0%, #001428 40%, transparent 70%);
+        linear-gradient(100deg, var(--oxford-blue) 0%, #001428 30%, rgba(0, 20, 40, 0.6) 50%, transparent 75%);
 }
 
-/* Cambridge side - teal with gradient depth */
+/* Cambridge side - teal with soft gradient depth (wide blend to avoid center seam) */
 .bg-cambridge {
     position: absolute;
     top: -10%;
     right: -5%;
-    width: 60%;
+    width: 65%;
     height: 120%;
     background:
         radial-gradient(ellipse 80% 50% at 80% 50%, rgba(142, 232, 216, 0.2) 0%, transparent 70%),
         radial-gradient(ellipse 100% 80% at 100% 50%, rgba(142, 232, 216, 0.3) 0%, transparent 60%),
-        linear-gradient(260deg, rgba(142, 232, 216, 0.35) 0%, #0a1a1a 40%, transparent 70%);
+        linear-gradient(260deg, rgba(142, 232, 216, 0.35) 0%, #0a1a1a 30%, rgba(10, 26, 38, 0.5) 50%, transparent 75%);
 }
 
 /* Central glow - creates the smooth fusion between both sides */
